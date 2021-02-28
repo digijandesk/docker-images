@@ -29,8 +29,9 @@ useful for Elixir Phoenix project builds, which need node to build assets such a
 build the image defined in Dockerfile with docker
 
 ```sh
-$ docker build . \
- -t digijandesk/elixir:1.11.3-node-12 \
- --build-arg ELIXIR_VERSION=1.11.3 \
- --build-arg NODE_VERSION=12
+$ NODE_VERSION=12 ELIXIR_VERSION=1.11.3 \ 
+docker build . \
+ -t digijandesk/elixir-node${NODE_VERSION}:${ELIXIR_VERSION} \
+ --build-arg ELIXIR_VERSION=${ELIXIR_VERSION} \
+ --build-arg NODE_VERSION=${NODE_VERSION}
 ```
